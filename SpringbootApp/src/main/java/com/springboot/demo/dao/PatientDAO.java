@@ -7,7 +7,7 @@ import com.springboot.demo.model.Patient;
 public interface PatientDAO {
 	List<Patient> get();
 	
-	Patient get(int id);
+	Patient get(int pid);
 	public void add(Patient patient);
-	public void delete(int id);
+	public void delete(int pid);
 }

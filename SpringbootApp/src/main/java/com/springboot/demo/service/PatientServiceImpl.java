@@ -24,23 +24,20 @@ public class PatientServiceImpl implements PatientService {
 
 	@Transactional
 	@Override
-	public Patient get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Patient get(int pid) {
+		return patientDAO.get(pid);	
 	}
 
 	@Transactional
 	@Override
 	public void add(Patient patient) {
-		// TODO Auto-generated method stub
-		
+		patientDAO.add(patient);
 	}
 
 	@Transactional
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+	public void delete(int pid) {
+		patientDAO.delete(pid);
 	}
 
 }

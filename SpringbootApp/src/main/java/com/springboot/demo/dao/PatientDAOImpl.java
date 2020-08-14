@@ -16,6 +16,7 @@ public class PatientDAOImpl implements PatientDAO {
 
 	@Autowired
 	private EntityManager entityManager;
+
 	
 	@Override
 	public List<Patient> get() {
@@ -26,21 +27,23 @@ public class PatientDAOImpl implements PatientDAO {
 	}
 
 	@Override
-	public Patient get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Patient get(int pid) {
+		Session session = entityManager.unwrap(Session.class);
+		Patient patientObj = session.get(Patient.class, pid);
+		return patientObj;
 	}
 
 	@Override
 	public void add(Patient patient) {
-		// TODO Auto-generated method stub
-		
+		Session session = entityManager.unwrap(Session.class);
+		session.saveOrUpdate(patient);
 	}
 
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+	public void delete(int pid) {
+		Session session = entityManager.unwrap(Session.class);
+		Patient patientObj = session.get(Patient.class, pid);
+		session.delete(patientObj);
 	}
 
 }
